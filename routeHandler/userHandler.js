@@ -21,7 +21,7 @@ const generalUserFields = [
 ];
 
 // get all users---------->
-router.get("/users", [checkLogin, admin], async (req, res) => {
+router.get("/users", async (req, res) => {
   const allUsers = await User.find({}).select("-password");
   res.status(200).send({ users: allUsers, msg: "successfully get all users" });
 });
